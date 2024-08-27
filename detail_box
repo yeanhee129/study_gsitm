@@ -29,12 +29,11 @@ export default {
   .detail_box {
     width: 500px;
     height: 400px;
-    margin: 2cm;
+    margin: 10px;
     padding: 5px;
     border: 1px solid gray;
     border-radius: 1px;
   }
-
   .btn{
     max-width: 150px;
     height: 40px;
