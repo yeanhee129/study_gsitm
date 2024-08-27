@@ -28,7 +28,8 @@
     </ul>
   
       <fieldset>
-        <p>
+        <Customer :CustomerData="CustomerData"/>
+        <!-- <p>
           <input name="customerName" type="radio"> 윤OO
         </p>
         <p>
@@ -48,39 +49,40 @@
         </p>
         <p>
           <input name="customerName" type="radio"> 이성경
-        </p>
+        </p> -->
       </fieldset>
     </div>
   
     <!-------------------- 정보 입력 부분 ----------------------->
   
     <div class="infomation">
-    <div class = "cust">
+      <CustDetail :CustomerData="CustomerData" :cus_id="cus_id"/>
+    <!-- <div class = "cust">
         <ul>
           <li>
             <label for="dop">**작성일자</label>
             <input type="text" id="dop" autofocus
-            placeholder="2023-12-29" required>
+            placeholder="몇월 몇일" required>
           </li>
           <li>
             <label for="name">*고객명</label>
             <input type="text" id="name" autofocus
-            placeholder="윤○○" required>
+            placeholder="이름" required>
           </li>
           <li>
             <label for="resident">*실명번호</label>
             <input type="text" id="resident" autofocus
-            placeholder="700110-1324561" required>
+            placeholder="번호" required>
           </li>
           <li>
             <label for="email">*E-mail</label>
             <input type="text" id="email" autofocus
-            placeholder="asd@naver.com" required>
+            placeholder="이메일을 입력하세요" required>
           </li>
           <li>
             <label for="number">전화번호</label>
             <input type="text" id="number" autofocus
-            placeholder="000-0000-0000" required>
+            placeholder="연락처" required>
           </li>
           <li>
             <label for="phone">*핸드폰번호</label>
@@ -95,7 +97,7 @@
             <textarea cols="20" rows="3"></textarea>
           </li>
           </ul>
-        </div>
+        </div> -->
           <hr>
           <div class="manager">
             <ul>
@@ -143,11 +145,24 @@
   </template>
 
   <script>  
+  import Customer from './components/Customer.vue';
+  import CustomerData from './assets/customer.js';
+  import CustDetail from './components/CustDetail.vue';
+
   export default {
-  
+    name : 'App',
+    data() {
+      return {
+        CustomerData: CustomerData,
+        cus_id : 3,
+        
+      }
+    },
+    
     components: {
-      
-    }
+      Customer,
+      CustDetail,
+    },
   }
   </script>
   
