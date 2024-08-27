@@ -1,0 +1,64 @@
+<template>
+  <div class="details">
+    <h2>상담내역:</h2>
+    <div class="detail_box">상담내용 들어갈 자리</div>
+    <div>
+      <button class="btn register">등록</button>
+      <button class="btn update">변경</button>
+      <button class="btn delete">삭제</button>
+      <button class="btn new">신규</button>
+    </div>
+    <div>
+      <button class="btn inquiry">고객조회</button>
+    </div>
+  </div>
+</template>
+
+<script>
+
+export default {
+  name: 'App',
+
+}
+</script>
+
+<style>
+  .details h2 {
+    margin-left: 20px;
+  }
+  .detail_box {
+    width: 500px;
+    height: 400px;
+    margin: 2cm;
+    padding: 5px;
+    border: 1px solid gray;
+    border-radius: 1px;
+  }
+
+  .btn{
+    max-width: 150px;
+    height: 40px;
+    width: 110px;
+    /* display: flex;
+    justify-content: center; */
+    align-items: center;
+    font-size: 20px;
+    font-weight: 700;
+    color: white;
+    background-color: rgb(12, 132, 136);
+    text-decoration: none;
+    cursor: pointer;
+    margin-left: 5px;
+    margin-right: auto;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    transition: 0.5s;
+  }
+
+  .inquiry {
+    background-color: rgb(228, 195, 152);
+    color: black;
+  }
+
+
+</style>
