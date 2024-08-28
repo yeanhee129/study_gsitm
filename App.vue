@@ -14,21 +14,21 @@
       <span>고객성명:</span>
       
       <li>
-        <input type="text">
+      <input type="text" @change="textChange">
       </li>
   
       <div id="buttons">
         <li>
-          <input type="button" value="조건 검색">
+          <input type="button" @click="search(1)" value="조건 검색">
         </li>
         <li>
-          <input type="button" value="전체 검색">
+          <input type="button" @click="search(2)" value="전체 검색">
         </li>
       </div>
     </ul>
   
       <fieldset>
-        <Customer :CustomerData="CustomerData"/>
+        <Customer :CustomerData="CustomerData" @radioChange="cus_id = $event"/>
         <!-- <p>
           <input name="customerName" type="radio"> 윤OO
         </p>
@@ -97,10 +97,13 @@
             <textarea cols="20" rows="3"></textarea>
           </li>
           </ul>
-        </div> -->
+        </div> 
+        -->
           <hr>
-          <div class="manager">
-            <ul>
+          <div class="manager" v-for="Customer in CustomerData" :key="Customer" >
+            <Manager v-if="cus_id == Customer.cus_id" :m_id="Customer.m_id"/>
+  
+            <!-- <ul>
               <li>
                 <label for="manager">관리담당자</label>
                 <input type="text" id="manager" required>
@@ -118,15 +121,16 @@
                 <label for="number2">**연락처</label>
                 <input type="text" id="number2" required>
               </li>
-            </ul>
-        </div>
+            </ul> -->
+        </div> 
       </div>
   
     <!-------------------- 상담 내역 부분 ----------------------->
   
     <div class="details">
         <h3>상담내역:</h3>
-        <div class="detail_box">상담내용 들어갈 자리</div>
+        <Consel :cus_id="cus_id"/>
+        <!-- <div class="detail_box">상담내용 들어갈 자리</div> -->
   
         <div>
           <button class="btn register">등록</button>
@@ -148,6 +152,8 @@
   import Customer from './components/Customer.vue';
   import CustomerData from './assets/customer.js';
   import CustDetail from './components/CustDetail.vue';
+  import Manager from './components/Manager.vue';
+  import Consel from './components/Consel.vue';
 
   export default {
     name : 'App',
@@ -155,13 +161,33 @@
       return {
         CustomerData: CustomerData,
         cus_id : 1,
-        
+        keyword : '',
+      }
+    },
+
+    methods : {
+      textChange(e){
+          this.keyword = e.target.value;
+      },
+
+      search(num){
+        if (this.keyword !== ''){
+          if(num==1){
+            alert(this.keyword+' 조건 검색'); 
+          }else{
+            alert(this.keyword+' 전체 검색'); 
+          }
+        } else {
+          alert('검색어를 입력해주세요!');
+        }
       }
     },
     
     components: {
       Customer,
       CustDetail,
+      Manager,
+      Consel,
     },
   }
   </script>
@@ -258,7 +284,7 @@
     }
 
     .manager ul li:first-child input { 
-      width: 100%;
+      width: 55%;
     }
 
     .manager ul li:first-child button {
