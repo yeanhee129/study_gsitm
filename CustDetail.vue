@@ -33,17 +33,21 @@
             <label for="address">주소</label>
             <textarea cols="20" rows="3" v-model="customer.addr" Disabled="true"></textarea>
           </li>
-          </ul>
-        </div> 
+        </ul>
+    </div> 
+
 </template>
 
 <script>
+
 export default {
     name : 'CustDetailVue',
+
     props : {
         CustomerData: Array,
         cus_id : Number,
-    }
+    },
+    
 }
 </script>
 
