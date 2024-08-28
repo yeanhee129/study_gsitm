@@ -129,7 +129,7 @@
   
     <div class="details">
         <h3>상담내역:</h3>
-        <Consel :cus_id="cus_id"/>
+        <Counsel :cus_id="cus_id"/>
         <!-- <div class="detail_box">상담내용 들어갈 자리</div> -->
   
         <div>
@@ -153,7 +153,7 @@
   import CustomerData from './assets/customer.js';
   import CustDetail from './components/CustDetail.vue';
   import Manager from './components/Manager.vue';
-  import Consel from './components/Consel.vue';
+  import Counsel from './components/Counsel.vue';
 
   export default {
     name : 'App',
@@ -187,7 +187,7 @@
       Customer,
       CustDetail,
       Manager,
-      Consel,
+      Counsel,
     },
   }
   </script>
