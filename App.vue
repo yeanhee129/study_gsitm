@@ -154,7 +154,7 @@
     data() {
       return {
         CustomerData: CustomerData,
-        cus_id : 3,
+        cus_id : 1,
         
       }
     },
